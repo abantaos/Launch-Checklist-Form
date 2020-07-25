@@ -4,6 +4,27 @@
         <title>Launch Checklist</title>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
         <script src = "script.js"></script>
+        <script>
+            window.addEventListener("load", function() {
+               fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+                  response.json().then( function(json) {
+                     const div = document.getElementById("missionTarget");
+                     div.innerHTML = `
+                        <h2>Mission Destination</h2>
+                        <ol>
+                           <li>Name: ${json[4].name}</li>
+                           <li>Diameter: ${json[4].diameter}</li>
+                           <li>Star: ${json[4].star}</li>
+                           <li>Distance from Earth: ${json[4].distance}</li>
+                           <li>Number of Moons: ${json[4].moons}</li>
+                        </ol>
+                        
+                        <img src="${json[4].image}">
+                        `;
+                    });
+                });
+            });
+         </script>
     </head>
     <body>
         <h1>Launch Checklist Form</h1>
