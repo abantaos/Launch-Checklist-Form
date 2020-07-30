@@ -39,14 +39,21 @@ window.addEventListener("load", function() {
       } else {
          
          pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch.`;
-         copilotStatus.innerHTML = `Coilot ${copilotName.value} is ready for launch.`;
+         copilotStatus.innerHTML = `Copilot ${copilotName.value} is ready for launch.`;
 
-             if (fuelLevel.value < 10000){
+             if (fuelLevel.value < 10000 && cargoMass.value > 10000){
                faultyItems.style.visibility = "visible";
                launchStatus.innerHTML = "Shuttle not ready for launch";
                launchStatus.style.color = "red";
                fuelStatus.innerHTML = "Not enough fuel";
-            } else if (cargoMass.value > 10000){
+               cargoStatus.innerHTML = "Too much mass";
+            } else if (fuelLevel.value <10000) {
+               faultyItems.style.visibility = "visible";
+               launchStatus.innerHTML = "Shuttle not ready for launch";
+               launchStatus.style.color = "red";
+               fuelStatus.innerHTML = "Not enough fuel";
+            }
+            else if (cargoMass.value > 10000){
                faultyItems.style.visibility = "visible";
                launchStatus.innerHTML = "Shuttle not ready for launch";
                launchStatus.style.color = "red";
